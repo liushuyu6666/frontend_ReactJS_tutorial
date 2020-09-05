@@ -3,13 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import Counter from './components/Counter';
 import Table from './components/Table';
+import Counter1 from './components/turnPage';
 
 function App() {
   return (
       <>
-        <Counter key={1}/>
-        <Counter key={2}/>
-        <Table/>
+        <Counter1 key={1}/>
       </>
   );
 }
