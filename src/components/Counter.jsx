@@ -1,31 +1,29 @@
-import React, {Component} from "react";
+import React, {Component} from "react"
 
 class Counter extends Component{
-
     constructor(props) {
         super(props);
         this.state = {
-            number: 0
+            score: 0
         }
     }
 
-
-    increase = (event) => {
+    addOne = (event) => {
         event.preventDefault();
-        // pay attention: if we don't use arrow function here, this represent "Windows".
+
         this.setState({
-            number: this.state.number + 100
+            score: this.state.score + 1
         })
     }
 
-    render() {
+    render(){
         return(
             <div>
-                <h3>number is {this.state.number}</h3>
-                <button onClick={this.increase}>click to increase</button>
+                <p>{this.state.score}</p>
+                <button onClick={this.addOne}>add one</button>
             </div>
         )
     }
 }
 
-export default Counter;
+export default Counter

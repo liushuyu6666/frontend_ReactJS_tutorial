@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 
-class turnPage extends Component{
+class BestPracticeTurnPage extends Component{
 
     constructor(props) {
         super(props);
@@ -14,37 +14,27 @@ class turnPage extends Component{
         event.preventDefault();
 
         if(this.state.page > 1){
-            this.setState({
-                page: this.state.page - 1
-            })
-            var url = 'https://jsonplaceholder.typicode.com/todos?_limit=' + ((this.state.page - 1) * 20);
+            this.setState({page: this.state.page - 1},
+                ()=>{
+                    let url = 'https://jsonplaceholder.typicode.com/todos?_limit=' + ((this.state.page) * 20);
+                    fetch(url).then(res => res.json()).then(data=>this.setState({data: data}))
+                }
+            )
         }
-
-        fetch(url)
-            .then(res => res.json())
-            .then(data => this.setState({
-                data: data
-            }))
     }
 
     nextPage = (event) => {
         event.preventDefault();
 
         if(this.state.page <= 9){
-            this.setState({
-                page: this.state.page + 1
-            })
-
-            var url = 'https://jsonplaceholder.typicode.com/todos?_limit=' + ((this.state.page + 1) * 20);
-
+            this.setState({page: this.state.page + 1},
+                ()=>{
+                    let url = 'https://jsonplaceholder.typicode.com/todos?_limit=' + ((this.state.page) * 20);
+                    fetch(url).then(res => res.json()).then(data => this.setState({data:data}))
+                }
+            )
         }
 
-        console.log(url);
-        fetch(url)
-            .then(res => res.json())
-            .then(data => this.setState({
-                data: data
-            }))
     }
 
     render(){
@@ -54,24 +44,24 @@ class turnPage extends Component{
                 <p>{this.state.page}</p>
                 <table>
                     <thead>
-                        <tr>
-                            <td>userId</td>
-                            <td>id</td>
-                            <td>title</td>
-                            <td>completed</td>
-                        </tr>
+                    <tr>
+                        <td>userId</td>
+                        <td>id</td>
+                        <td>title</td>
+                        <td>completed</td>
+                    </tr>
                     </thead>
                     <tbody>
                     {
                         this.state.data.map(item => (
                             // console.log(this.state.page)
                             (item.id > (this.state.page - 1) * 20 && item.id <= this.state.page * 20)?
-                            (<tr>
-                                <th>{item.userId}</th>
-                                <th>{item.id}</th>
-                                <th>{item.title}</th>
-                                <th>{item.completed ? "true" : "false"}</th>
-                            </tr>):
+                                (<tr key={item.id}>
+                                    <th>{item.userId}</th>
+                                    <th>{item.id}</th>
+                                    <th>{item.title}</th>
+                                    <th>{item.completed ? "true" : "false"}</th>
+                                </tr>):
                                 (null)
                         ))
                     }
@@ -94,4 +84,4 @@ class turnPage extends Component{
     }
 }
 
-export default turnPage
+export default BestPracticeTurnPage

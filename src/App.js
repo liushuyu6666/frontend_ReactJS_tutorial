@@ -3,12 +3,20 @@ import logo from './logo.svg';
 import './App.css';
 import Counter from './components/Counter';
 import Table from './components/Table';
-import Counter1 from './components/turnPage';
+import TurnPage from './components/TurnPage';
+import BestPracticeTurnPage from "./components/BestPracticeTurnPage";
+// import TestsetState from "./components/TestsetState";
+import Timer from "./components/Timer";
 
 function App() {
   return (
       <>
-        <Counter1 key={1}/>
+        {/*<TurnPage key={1}/>*/}
+        {/*<BestPracticeTurnPage key={2}/>*/}
+        {/*<Counter key = {3}></Counter>*/}
+        {/*<Table key={4}/>*/}
+        {/*  <TestsetState/>*/}
+        <Timer/>
       </>
   );
 }
