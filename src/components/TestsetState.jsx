@@ -20,10 +20,8 @@ class TestsetState extends Component{
         this.setState({data2: this.state.data2 + 3});
         setTimeout(() =>
             console.log("this is in the timeout " + this.state.data2), 0);
-        for(let i = 0; i < 50000; i++){
-            if( i / 2000 == 0){
-                console.log("yes");
-            }
+        for(let i = 0; i < 5000; i++){
+            console.log("");
         }
 
     }
