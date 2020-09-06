@@ -9,6 +9,7 @@ import BestPracticeTurnPage from "./components/BestPracticeTurnPage";
 import Timer from "./components/Timer";
 import BadTimer from "./components/BadTimer";
 import AnotherTimer from "./components/AnotherTimer"
+import TestsetState from "./components/TestsetState";
 
 function App() {
   return (
@@ -17,10 +18,10 @@ function App() {
         {/*<BestPracticeTurnPage key={2}/>*/}
         {/*<Counter key = {3}></Counter>*/}
         {/*<Table key={4}/>*/}
-        {/*  <TestsetState/>*/}
         {/*<Timer/>*/}
         {/*<BadTimer number={100}/>*/}
-        <AnotherTimer count={10}/>
+        {/*<AnotherTimer count={10}/>*/}
+        <TestsetState/>
       </>
   );
 }
